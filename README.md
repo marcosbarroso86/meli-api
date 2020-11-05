@@ -27,7 +27,7 @@ gulp start-dev
 ## Ejecutando las pruebas ⚙️
 
 ```
-_npm run test_
+npm run test
 ```
 
 ### Swagger ⌨️
