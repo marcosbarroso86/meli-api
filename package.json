@@ -1,0 +1,52 @@
+{
+  "name": "meli-api",
+  "version": "0.0.1",
+  "description": "",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "author": {
+    "name": "Marcos Barroso"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "tags": [
+    "orm",
+    "typescript",
+    "node",
+    "express"
+  ],
+  "devDependencies": {
+    "@types/body-parser": "^1.16.8",
+    "@types/express": "^4.11.1",
+    "@types/jsonwebtoken": "^8.3.5",
+    "@types/node": "^9.6.5",
+    "chai": "^4.2.0",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-terser": "^1.2.0",
+    "gulp-typescript": "^5.0.1",
+    "mocha": "^8.2.1",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^8.0.3",
+    "axios": "^0.21.0",
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.5",
+    "express": "^4.16.3",
+    "method-override": "^2.3.9",
+    "swagger-ui-express": "^4.1.2",
+    "ts-mocha": "^8.0.0"
+  },
+  "scripts": {
+    "start": "node dist/server.js",
+    "build": "node node_modules/gulp/bin/gulp.js prod",
+    "test": "node node_modules/ts-mocha/bin/ts-mocha --timeout 10000 spec/app.spec.ts"
+  }
+}

@@ -1,0 +1,127 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Mercado Libre API REST",
+        "version": "1.0.0",
+        "description": "API Restful de Aplicativo Mercado Libre"        
+    },
+    "basePath": "/api",
+    "tags": [
+        {
+            "name": "Mercado Libre",
+            "description": "Todo acerca de Mercado libre app"
+        }
+      
+    ],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/items": {
+            "get": {
+                "tags": [
+                    "Mercado Libre"
+                ],
+                "summary": "Obtiene items de una busqueda",
+                "parameters": [
+                    {
+                        "in" : "query",
+                        "name": "q",
+                        "type": "string",
+                        "required":true
+                  
+                    }
+                ],
+                "operationId": "obtenerItems",
+                "produces": [
+                    "application/json"
+                ],
+                "description": "Retorna una lista de items.",
+                "responses": {
+                    "200": {
+                        "description": "Una lista de items",
+                        "schema": {
+                            "$ref": "#/definitions/ListaItems"
+                        }
+                    },
+                    "405": {
+                        "description": "Error de validación"
+                    },
+                    "500": {
+                        "description": "Error interno del servidor"
+                    }
+                }
+            }
+        },
+        "/items/{id}": {
+            "get": {
+                "tags": [
+                    "Mercado Libre"
+                ],
+                "summary": "Obtiene un item",
+                "operationId": "obtener item by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del item.",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "description": "Retorna un item.",
+                "responses": {
+                    "200": {
+                        "description": "Una item",
+                        "schema": {
+                            "$ref": "#/definitions/Item"
+                        }
+                    },
+                    "400": {
+                        "description": "ID inválido"
+                    },
+                    "404": {
+                        "description": "item no encontrado"
+                    },
+                    "500": {
+                        "description": "Error interno del servidor"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+
+        "Item": {            
+            "type": "object",
+            "properties": {
+                "author": {
+                    "type": "object"
+                },
+                "categories": {
+                    "type": "object"
+                },
+                "item": {
+                    "type": "object"
+                }
+               
+            }
+        },
+
+        "ListaItems": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Item"
+                    }
+                }
+            }
+        }
+
+    }
+}
